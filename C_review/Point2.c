@@ -7,7 +7,27 @@
 */
 #include<stdio.h>
 #include<stdlib.h>
+#include<ctype.h>
+void fun(char *s1, char *s2)//缩化成指针
+{
+    for (int i = 0 ; s1[i]!=0 ; i++)
+        if(isalpha(s1[i]))
+            *(s2++)=*(s1+i);
+
+    for (int i = 0 ; s1[i]!=0 ; i++)
+        if(isdigit(s1[i]))
+            *(s2++)=*(s1+i);
+
+    for (int i = 0 ; s1[i]!=0 ; i++)
+        if(!isdigit(s1[i])&&!isalpha(s1[i]))
+            *(s2++)=*(s1+i);
+            
+    *(s2++)=0;
+}      
 int main()
 {
-
+    char s1[100],s2[100];
+    gets(s1);
+    fun(s1,s2);
+    puts(s2);
 }

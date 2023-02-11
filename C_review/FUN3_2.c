@@ -1,16 +1,9 @@
 #include <stdio.h>
-long htod(char s[])
-{
-    int number;
-    sscanf(s, "%x", &number);
-    return number;
-}
-
 int main() 
 {
-    char s[101];
+    int s;
     printf("Input a Hex:\n");
-    scanf("%s",s);
-    printf("Dec:\n%d\n",htod(s));
+    scanf("%x",&s);
+    printf("Dec:\n%d\n",s);
     return 0;
 }

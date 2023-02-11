@@ -4,7 +4,7 @@
 #include <string.h>
 //相对路径：包含在同一个目录下可用->1  myhead.h 2  ./myhead.h
 //在上级或其他->../myhead.h
-//绝对的路径->"D:\Cc_code\myhead.h"
+//绝对的路径->"D:\code\C\myhead.h"
 
 
 /*                 读写方式起决定性作用
@@ -34,8 +34,8 @@ b   binary二进制
 
     * 二进制读写方式
     ** fwrite()
-       fread()*/
-
+       fread()
+*/
 
 //无论是读到还是写到，指针会自己像后移，文件函数封装了指针的移动
 
@@ -56,12 +56,14 @@ void testwrite()
 
 //字符写--麻烦
 
-    /*int i=0;
+    /*
+    int i=0;
     while(str[i]!='\0')
     {
         fputc(str[i],fp);
         i++;
-    }*/
+    }
+    */
     
 //字符串写--方便
     fputs(str,fp);
@@ -113,7 +115,6 @@ void testread()
     
 
     fclose(fp);
-
 }
 int main()
 {

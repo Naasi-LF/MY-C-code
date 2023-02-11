@@ -13,10 +13,10 @@ struct MM
 格式化读写方式
 
 
-{void writefile
+void writefile
   (const char* filename,struct MM array[],int arrayNum)
-    FILE* fp=fopen(filename,"w");
-
+    FILE* fp=fopen(filename,"w")
+{
 //写操作
     for(int i=0;i<arrayNum;i++)
     {

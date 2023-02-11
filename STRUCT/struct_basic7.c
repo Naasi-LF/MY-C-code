@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-//-------------Nassi老婆管理系统--------------
+//-------------老婆管理系统--------------
 
 //定义一个结构体用于存放老婆信息
 struct MM
@@ -14,23 +14,23 @@ struct MM
 
 struct MM array[100];//定义一个全局结构体数组
 
-
 int count =0;//定义一个全局计数器
 
 //定义一个菜单界面
 void menu()
 {
-    printf("----------[公司员工管理系统]---------\n");
+    printf("-----------[章江睿老婆管理系统]---------\n");
     printf("\t0.退出系统\n");
-    printf("\t1.录入员工信息\n");
-    printf("\t2.浏览员工信息\n");
-    printf("\t3.查询员工信息\n");
-    printf("\t4.修改员工信息\n");
-    printf("\t5.删除员工信息\n");
-    printf("-------------------------------------\n");
-    printf("请输入(0~5):");
+    printf("\t1.录入老婆信息\n");
+    printf("\t2.浏览老婆信息\n");
+    printf("\t3.查询老婆信息\n");
+    printf("\t4.修改老婆信息\n");
+    printf("\t5.删除老婆信息\n");
+    printf("\t6.保存老婆信息(一旦保存无法修改)\n");
+    printf("\t7.浏览已保存老婆信息\n");
+    printf("----------------------------------------\n");
+    printf("请输入(0~7):");
 }
-
 
 //负责输入
 void input()
@@ -40,7 +40,6 @@ void input()
                     array[count].addr,&array[count].score);
     count++;//计数的好处
 }
-
 
 //负责打印
 void print(struct MM array[],int count)
@@ -53,7 +52,6 @@ void print(struct MM array[],int count)
     }
     
 }
-
 
 //负责查询
 int searchResult(char* name)
@@ -88,6 +86,28 @@ void deleteByName(char* name)
         printf("删除成功!\n");
     }
 }
+
+//负责保存
+void save()
+{
+    FILE *file = fopen("D:\\老婆老婆我爱你.txt", "a");
+    if (file == NULL) 
+      return 1;
+    for (size_t i = 0; i < count; i++)
+        fprintf(file,"%s\t%d\t%s\t%.1f\n",array[i].name,array[i].age,
+                    array[i].addr,array[i].score);    
+    fclose(file);
+    printf("你的老婆保存成功\n");
+}
+
+//负责查找文件信息
+search_file()
+{
+    FILE *fp=fopen("D:\\老婆老婆我爱你.txt", "r");
+    int read;
+    while ((read=fgetc(fp))!=EOF)
+      putchar(read);
+    }
 
 //选择函数
 void keyDown()
@@ -148,6 +168,14 @@ void keyDown()
         printf("请输入要删除的老婆的name:");
         scanf("%s",name);
         deleteByName(name);
+        break;
+
+    case 6:
+        save();
+        break;
+    
+    case 7:
+        search_file();
         break;
 
     default:printf("请输入正确的数字:");

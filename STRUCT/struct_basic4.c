@@ -8,6 +8,7 @@ struct names
     char fist[MAX];
     char last[MAX];
 };
+
 struct gay
 {
     struct names handle;
